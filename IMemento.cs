@@ -70,7 +70,8 @@ namespace GenericUndoRedo
         /// The returned inverse memento is the key to support redo.
         /// </remarks>
         IMemento<T> Restore(T target);
-		
+
+        string GetName();
 	}
 
 }
