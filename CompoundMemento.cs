@@ -98,7 +98,7 @@ namespace GenericUndoRedo
         string IMemento<T>.GetName()
         {
             string[] Names = GetName().ToArray();
-            Names[0] = "//"+ Names[0];
+            Names[0] = "//" + Names[0];
             return string.Join(" //", Names);
         }
 

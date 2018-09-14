@@ -216,8 +216,10 @@ namespace GenericUndoRedo
         {
             if (tempMemento == null)
                 throw new InvalidOperationException("Ending a non-existing complex memento");
-
-            _Do(tempMemento);
+            if (tempMemento.Size != 0)
+            {
+                _Do(tempMemento);
+            }
             tempMemento = null;
         }
 
