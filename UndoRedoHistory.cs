@@ -315,6 +315,7 @@ namespace GenericUndoRedo
         {
             undoStack.Clear();
             redoStack.Clear();
+            tempMemento = null;
         }
 
         /// <summary>
