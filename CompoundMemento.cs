@@ -78,6 +78,13 @@ namespace GenericUndoRedo
             return inverse;
         }
 
+        public List<string> GetName()
+        {
+            List<string> names = new List<string>();
+            for (int i = mementos.Count - 1; i >= 0; i--)
+                names.Add(mementos[i].GetName());
+            return names;
+        }
         /// <summary>
         /// Explicity implememntation of <see cref="IMemento&lt;T&gt;.Restore(T)"/>
         /// </summary>
@@ -86,6 +93,13 @@ namespace GenericUndoRedo
         IMemento<T> IMemento<T>.Restore(T target)
         {
             return Restore(target);
+        }
+
+        string IMemento<T>.GetName()
+        {
+            string[] Names = GetName().ToArray();
+            Names[0] = "//" + Names[0];
+            return string.Join(" //", Names);
         }
 
         #endregion
